@@ -1,0 +1,14 @@
+{
+    "/apitoken": {
+      "target": "https://api.orange.com/oauth/v2/token",
+      "changeOrigin": true,
+      "secure": false,
+      "logLevel": "debug"
+    },
+    "/apipay": {
+      "target": "https://api.orange.com/orange-money-webpay/dev/v1/webpayment/",
+      "changeOrigin": false,
+      "secure": false,
+      "logLevel": "debug"
+    }
+  }

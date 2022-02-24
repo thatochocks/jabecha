@@ -1,0 +1,54 @@
+{
+    "ios": {
+        "debug": {
+            "codeSignIdentity": "iPhone Distribution",
+            "provisioningProfile": "xxxxxxx-xxxxx-xxx-xxxx-xxxxx",
+            "developmentTeam": "xxxxxx",
+            "packageType": "ad-hoc",
+            "iCloudContainerEnvironment": "Development",
+            "buildFlag": [
+                "LD_RUNPATH_SEARCH_PATHS = \"@executable_path/Frameworks\""
+            ]
+        },
+        "release": {
+            "codeSignIdentity": "iPhone Distribution",
+            "provisioningProfile": "xxxxxxx-xxxxx-xxx-xxxx-xxxxx",
+            "developmentTeam": "xxxxxxx",
+            "packageType": "app-store",
+            "iCloudContainerEnvironment": "Production",
+            "buildFlag": [
+                "LD_RUNPATH_SEARCH_PATHS = \"@executable_path/Frameworks\""
+            ]
+        }
+    },
+    "android": {
+        "debug": {
+            "keystore": "keystore.jks",
+            "storePassword": "oagile97488",
+            "alias": "upload",
+            "password": "oagile97488",
+            "keystoreType": ""
+        },
+        "release": {
+            "keystore": "keystore.jks",
+            "storePassword": "oagile97488",
+            "alias": "upload",
+            "password": "oagile97488",
+            "keystoreType": ""
+        },
+        "device": {
+            "keystore": "keystore.jks",
+            "storePassword": "oagile97488",
+            "alias": "upload",
+            "password": "oagile97488",
+            "keystoreType": ""
+        },
+        "emulator": {
+            "keystore": "keystore.jks",
+            "storePassword": "oagile97488",
+            "alias": "upload",
+            "password": "oagile97488",
+            "keystoreType": ""
+        }
+    }
+}
