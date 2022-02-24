@@ -56,5 +56,5 @@ RUN mkdir $ANDROID_HOME/licenses && \
 #FILES DELETION
 RUN rm -rf /tmp/* /var/cache/apk/*
 
-WORKDIR
+WORKDIR /jabecha
 RUN npm install
