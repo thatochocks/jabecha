@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-button (click)="back()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{'ON_THE_WAY' | translate}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="danger" fill="solid" size="small" *ngIf="trip.status == 'waiting'" (click)="cancelTrip()">
+        {{'CANCEL_TRIP' | translate}}
+      </ion-button>
+      <ion-button fill="solid" color="danger" href="tel:{{sos}}" *ngIf="trip.status == 'going'">{{'SOS' | translate}}
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="map" style="height:100%"></div>
+  <ion-card>
+    <ion-item lines="none" [hidden]="tripStatus()">
+      <ion-text>
+        <span style="background:#ffff00">{{ 'OTP' | translate}}: {{ (trip)?.otp }}</span>
+      </ion-text>
+      <ion-button color="dark" slot="end" (click)="sendOtp()">
+        <ion-icon name="mail"></ion-icon>&nbsp;Send Otp
+      </ion-button>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-avatar slot="start">
+        <img src="{{ (driver)?.photoURL }}" />
+      </ion-avatar>
+      
+      <ion-label>
+        <ion-text>
+          <h2>{{ (driver)?.name }} &nbsp; {{(driver)?.rating}} <ion-icon name="md-star" color="yellow"></ion-icon>
+          </h2>
+        </ion-text>
+        <ion-text>
+          <p>{{ (driver)?.plate }} &middot; {{ (driver)?.brand }}</p>
+        </ion-text>
+      </ion-label>
+      <ion-button color="dark" slot="end" href="tel: {{ (driver)?.phoneNumber }} ">
+        <ion-icon name="call"></ion-icon>&nbsp;{{'CALL' | translate}}
+      </ion-button>
+      
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <p>{{'DISTANCE' | translate}}</p>
+        <h5>{{distanceText}}</h5>
+      </ion-col>
+      <ion-col>
+        <p>Payment Status</p>
+        <h5>{{trip.payStatus}}</h5>
+      </ion-col>
+      <ion-col>
+        <p>{{'PRICE' | translate}}</p>
+        <h5>{{ trip.currency }} {{trip.fee}}</h5>
+      </ion-col>
+      <ion-col>
+        <p>{{'ETA' | translate}}</p>
+        <h5>{{durationText}}</h5>
+      </ion-col>
+      <ion-col>
+        <p>{{'PAYMENT' | translate}}</p>
+        <h5>{{trip.paymentMethod}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-button color="dark" slot="end" *ngIf="trip.proof != undefined" (click)="viewPhoto(trip.proof)">
+      <ion-icon name="photo"></ion-icon>&nbsp;View Proof
+    </ion-button>
+    <ion-button color="dark" slot="end" *ngIf="(trip.status == 'going' && trip.type =='nthome')" (click)="transfer()">
+      <ion-icon name="money"></ion-icon>&nbsp;Transfer To Other Agent
+    </ion-button>
+  </ion-card>
+</ion-content>

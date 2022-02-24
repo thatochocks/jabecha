@@ -1,0 +1,17 @@
+{
+  "name": "Jabecha",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "proxies": [
+    {
+      "path": "/apitoken",
+      "proxyUrl": "https://api.orange.com/oauth/v2/token"
+    },
+    {
+      "path": "/apipay",
+      "proxyUrl": "https://api.orange.com/orange-money-webpay/dev/v1/webpayment"
+    }
+  ]
+}

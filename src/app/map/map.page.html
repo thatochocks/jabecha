@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <input class="locationinput" type="text" id="searchbar" #searchbar placeholder="search location or drag map" />
+    <ion-buttons slot="end">
+      <ion-button (click)="selectPlace()">{{'DONE' | translate}}</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p class="place-text">{{ address ? address.formatted_address : '' }}</p>
+  <div #map id="map"></div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="light" id="loc" (click)="CenterControl()">
+      <ion-icon class="loc-icon" name="md-locate" color="dark"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
